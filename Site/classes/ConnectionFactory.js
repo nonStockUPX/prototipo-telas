@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 class ConnectionFactory{
     constructor(config){
         this.connection = mysql.createConnection(config);
@@ -30,5 +30,5 @@ class ConnectionFactory{
         });
     }
 }
-
+connection.end();
 module.exports = ConnectionFactory;
