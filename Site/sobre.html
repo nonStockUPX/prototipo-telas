@@ -1,34 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NonStock</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sobre - NonStock</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+        }
+
+        .container {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu {
+            background-color: #009DAC;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            padding: 10px;
+            margin-right: auto;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: solid 1px white;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .item2 {
+            display: flex;
+            align-items: center;
+            background-color: black;
+            font-size: 15px;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: solid 1px black;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .conteudo {
+            width: 80%;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .conteudo h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .conteudo p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <img src="imagem/nonstock2.png" alt="Logo Pagina">
-        <a href="index.html">Pagina Inicial</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="comofunciona.html">Como Funciona</a>
-        <a href="contato.html">Contato</a>
-        <a href="login.html">Login</a>
-        <a href="">Cadastre-se aqui</a>
-    </div>
-    <div class="corpo">
-        <div class="texto">
-          <h1>Sobre o NonStock</h1>
-          <p>Bem-vindo ao NonStock, uma plataforma inovadora que busca criar uma ponte entre empresas e instituições beneficentes, com o objetivo de promover a solidariedade e fazer a diferença na vida das pessoas.</p> 
-          <p>No NonStock, acreditamos no poder da generosidade e na importância de compartilhar recursos para construir um mundo mais justo e sustentável. </p>
-          <p>Nossa missão é proporcionar uma maneira simples e eficiente para que empresas de todos os tamanhos possam contribuir para causas nobres, doando sua sobrecarga de estoque e outros recursos excedentes para instituições beneficentes que trabalham incansavelmente para melhorar a vida daqueles que mais precisam.</p> 
-          <p>Ao conectar empresas com instituições, estamos criando uma comunidade onde a solidariedade pode prosperar e onde cada contribuição faz uma diferença tangível.</p>
-          <p>Nosso compromisso vai além de simplesmente facilitar doações; nós nos esforçamos para promover uma cultura de responsabilidade social corporativa e inspirar outros a se juntarem a nós nessa jornada de impacto positivo.</p>
-          <p>No NonStock, acreditamos que juntos podemos criar um futuro melhor para todos.</p>
-          <p>Junte-se a nós nesta missão e faça parte da mudança que queremos ver no mundo</p>
+    <div class="container">
+        <div class="menu">
+            <img src="img/nonstock2.png" alt="logo site" class="logo">
+            <a href="home.html" class="item">Pagina Inicial</a>
+            <a href="sobre.html" class="item">Sobre</a>
+            <a href="contato.html" class="item">Contato</a>
+            <a href="login.html" class="item">Login</a>
+            <a href="cadastro.html" class="item2">Sing Up</a>
         </div>
-        <img src="imagem/doacao.png" alt="Imagem do corpo" class="imagecorpo">   
+
+        <div class="conteudo">
+            <h2>Sobre o NonStock</h2>
+            <p>O NonStock é uma plataforma que visa conectar empresas que possuem excedentes de estoque com instituições que necessitam desses recursos. Nosso objetivo é reduzir o desperdício, promover o impacto social positivo e oferecer oportunidades de marketing para empresas comprometidas com a responsabilidade social corporativa.</p>
+        </div>
     </div>
-        
 </body>
 </html>
