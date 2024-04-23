@@ -3,6 +3,7 @@ class ConnectionFactory{
     constructor(config){
         this.connection = mysql.createConnection(config);
     }
+
     connect(){
         this.connection.connect((err) => {
             if(err){
@@ -12,6 +13,7 @@ class ConnectionFactory{
             console.log('Conexão bem sucedida com o servidor')
         });
     }
+
     query(sql, args){
         return new Promise((resolve, reject) => {
             this.connection.query(sql, args, (err, rows) =>{
@@ -20,6 +22,7 @@ class ConnectionFactory{
             })
         });
     }
+    
     close(){
         this.connection.end((err) => {
             if(err){
