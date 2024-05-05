@@ -1,0 +1,35 @@
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.ad {
+    width: 400px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #009DAC;
+    border-radius: 5px;
+    background-color: #009DAC;
+    display: flex;
+    flex-direction: row;
+}
+
+.ad img {
+    max-width: 50%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.description {
+    margin-top: 10px;
+}
+
+.description h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.description p {
+    font-size: 14px;
+}
