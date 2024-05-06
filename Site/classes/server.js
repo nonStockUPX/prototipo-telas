@@ -21,18 +21,4 @@ app.get("/", function(req, res){
     res.sendFile("C:/Users/augus/Documents/Projetos VSCode/Projeto UPX III/prototipo-telas/Site/login.html");
 });
 
-app.post("/", encoder, function(req, res){
-    var user = req.body.login;
-    var password = req.body.senha;
-
-    connection.query("select * from user where email = ? and senha = ?", [user, password], function(error, results, fields){
-        if(results.length > 0){
-            res.redirect("/home.html");
-        }
-        else{
-            res.redirect("/");
-        }
-    });
-});
-
 app.listen(4500);
