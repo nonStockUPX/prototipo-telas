@@ -145,7 +145,7 @@
     <div class="container">
         <div class="menu">
             <img src="img/nonstock2.png" alt="logo site" class="logo">
-            <a href="meu-cadastro.html" class="item">Meu Cadastro</a>
+            <a href="../../../catalogo/html/catalogo.html" class="item">Catalogo</a>
             <a href="meu-produto.html" class="item">Meu Produto</a>
             <a href="contato-adm.html" class="item">Contato</a>
             <a href="home.html" class="item item2">Sair</a>            
@@ -210,11 +210,25 @@
             endereco: document.getElementById("endereco").value,
             numero: document.getElementById("numero").value,
             descricao: document.getElementById("descricaoProduto").value,
-            foto: document.getElementById("foto").files[0]
+            foto: document.getElementById("foto").files[0],
+            id_empresa: localStorage.getItem('usuarioId')
         };
 
-        adicionarProduto(produto);
-        fecharModal();
+        // adicionarProduto(produto);
+        console.log(produto)
+    
+        fetch(`https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(produto)
+            })
+            .then(() => buscarDetalhesDoUsuario())
+            .catch(error => console.error('Erro ao enviar formulário:', error)); // Tratamento de erro
+            console.log('Formulário validado e pronto para ser enviado.');
+
+            fecharModal();
     }
 
     function adicionarProduto(produto) {
@@ -237,6 +251,36 @@
 
         document.getElementById("produtos-container").appendChild(divProduto);
     }
+
+    function buscarDetalhesDoUsuario() {
+        const usuarioId = localStorage.getItem('usuarioId');
+        if (usuarioId) {
+            const url = `https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll('div.produto').forEach(function(div) {
+                        div.remove();
+                    });
+                    const produtos = data.filter(produto => produto.id_empresa === usuarioId);
+                    produtos.forEach(p => {
+                        adicionarProduto(p);
+                    });
+                    console.log('Detalhes do usuário:', data);
+                    // Aqui você pode atualizar a UI da página com os detalhes do usuário
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar detalhes do usuário:', error);
+                });
+        } else {
+            console.log('Nenhum usuário logado.');
+        }
+    }
+
+// Chama buscarDetalhesDoUsuario quando o DOM estiver pronto
+    document.addEventListener('DOMContentLoaded', function() {
+    buscarDetalhesDoUsuario();
+});
 </script>
 
 </body>
