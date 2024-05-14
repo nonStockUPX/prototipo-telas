@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Redirecionando para a página principal
                 window.location.href = '../catalogo/catalogo.html';
             } else {
-                document.getElementById('nome-error').textContent = 'Por favor, preencha todos os campos.';
+                document.getElementById('nome-error').textContent = 'Senha invalida.';
             }
         })
         .catch((error) => {
             console.error('Erro na requisição:', error);
-            alert('Houve um erro ao tentar fazer o login. Por favor, coloque um email cadastrado.');
+            document.getElementById('nome-error').textContent = 'Usuario invalido.';
         });
     });
 });
