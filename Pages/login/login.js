@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const usuarioEmail = document.getElementById('usuario').value;
         const senha = document.getElementById('senha').value;
 
-        fetch("https://6630275bc92f351c03d92479.mockapi.io/linguagens/usuario", {
+        fetch(`https://6630275bc92f351c03d92479.mockapi.io/linguagens/usuario?email=${usuarioEmail}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             // Procura pelo usuário na resposta da API
-            const usuario = data.find(u => u.email === usuarioEmail && u.senha === senha);
+            const usuario = data.find(u => u.senha === senha);
             if (usuario) {
                 console.log("Usuário encontrado:", usuario);
                 // Aqui você pode armazenar o ID do usuário localmente, redirecionar para outra página, etc.
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch((error) => {
             console.error('Erro na requisição:', error);
-            alert('Houve um erro ao tentar fazer o login. Por favor, tente novamente mais tarde.');
+            alert('Houve um erro ao tentar fazer o login. Por favor, coloque um email cadastrado.');
         });
     });
 });
