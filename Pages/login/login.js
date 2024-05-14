@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.form-error').value = '';
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function(e) {
@@ -23,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Por exemplo, armazenando o ID do usuário:
                 localStorage.setItem('usuarioId', usuario.id);
                 // Redirecionando para a página principal
-                window.location.href = '../../catalogo/html/catalogo.html';
+                window.location.href = '../catalogo/catalogo.html';
             } else {
-                alert('Usuário ou senha inválidos.');
+                document.getElementById('nome-error').textContent = 'Por favor, preencha todos os campos.';
             }
         })
         .catch((error) => {
