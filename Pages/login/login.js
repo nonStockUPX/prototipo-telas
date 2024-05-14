@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log("Usuário encontrado:", usuario);
                 // Aqui você pode armazenar o ID do usuário localmente, redirecionar para outra página, etc.
                 // Por exemplo, armazenando o ID do usuário:
+                localStorage.setItem('nomeEmpresa', usuario.name);
                 localStorage.setItem('usuarioId', usuario.id);
                 // Redirecionando para a página principal
                 window.location.href = '../catalogo/catalogo.html';
