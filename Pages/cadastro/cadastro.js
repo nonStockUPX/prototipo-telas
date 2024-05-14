@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
+    document.querySelector('.form-error').value = '';
 
     // Função para validar o formulário
     function validarFormulario() {
@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Verifica se todos os campos obrigatórios estão preenchidos
         if (!nome || !lastName || !email || !cnpj || !cep || !endereco || !telefone || !tipo || !senha) {
-            alert('Por favor, preencha todos os campos obrigatórios.');
+            document.getElementById('nome-error').textContent = 'Por favor, preencha todos os campos.';
+            isValid = false;
             return false;
         }
 
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 body: JSON.stringify(resp)
             })
-            .then(() => window.location.href = '../../login/html/login.html')
+            .then(() => window.location.href = '../login/login.html')
             .catch(error => console.error('Erro ao enviar formulário:', error)); // Tratamento de erro
             console.log('Formulário validado e pronto para ser enviado.');
         }
