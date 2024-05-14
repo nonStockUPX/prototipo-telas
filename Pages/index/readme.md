@@ -2,6 +2,7 @@ PARTE PADRAO CSS
 
 
 *{
+
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -9,6 +10,7 @@ PARTE PADRAO CSS
 }
 
 nav{
+
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -16,16 +18,16 @@ nav{
 }
 main{
 
-width: 100%;
-margin: 0px;
-padding: 0px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 nav .menu {
+
     /*Cor Azul padrão para barra nav : #0B5294*/
     background-color: #0B5294;
     display: flex;
@@ -37,6 +39,7 @@ nav .menu {
 }
 
 nav #logo {
+
     height: 100px;
     width: auto;
     padding: 10px;
@@ -46,6 +49,7 @@ nav #logo {
 }
 
 nav .menu .item {
+
     display: flex;
     align-items: baseline;
     font-size: 20px;
@@ -59,6 +63,7 @@ nav .menu .item {
 }
 
  nav .menu a:hover{
+ 
     color: white;
 } 
 
@@ -77,6 +82,7 @@ header .headerContato{
     padding: 50px;
 }
 header .headerContato h1{
+
     display: flex;
     justify-content: center;
     font-size: 30px;
@@ -84,6 +90,7 @@ header .headerContato h1{
 }
 
 header .headerContato p{
+
     display: flex   ;
     justify-content: center;
     text-align: justify;
