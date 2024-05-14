@@ -58,30 +58,29 @@ function adicionarProduto(produto) {
     document.getElementById("produtos-container").appendChild(divProduto);
 }
 
-function buscarDetalhesDoUsuario() {
-    const usuarioId = localStorage.getItem('usuarioId');
-    if (usuarioId) {
-        const url = `https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                document.querySelectorAll('div.produto').forEach(function(div) {
-                    div.remove();
+    function buscarDetalhesDoUsuario() {
+        const usuarioId = localStorage.getItem('usuarioId');
+        if (usuarioId) {
+            const url = `https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos?id_empresa=${usuarioId}`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll('div.produto').forEach(function(div) {
+                        div.remove();
+                    });
+                    data.forEach(p => {
+                        adicionarProduto(p);
+                    });
+                    console.log('Detalhes do usuário:', data);
+                    // Aqui você pode atualizar a UI da página com os detalhes do usuário
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar detalhes do usuário:', error);
                 });
-                const produtos = data.filter(produto => produto.id_empresa === usuarioId);
-                produtos.forEach(p => {
-                    adicionarProduto(p);
-                });
-                console.log('Detalhes do usuário:', data);
-                // Aqui você pode atualizar a UI da página com os detalhes do usuário
-            })
-            .catch(error => {
-                console.error('Erro ao buscar detalhes do usuário:', error);
-            });
-    } else {
-        console.log('Nenhum usuário logado.');
+        } else {
+            console.log('Nenhum usuário logado.');
+        }
     }
-}
 
 // Chama buscarDetalhesDoUsuario quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
