@@ -42,17 +42,17 @@
                             <input type="number" id="quantidade" required placeholder="Digite quantidade *"><br>
                         </div>
                         <div class="formContent">
-                            <label for="nomeEmpresa">Nome da Empresa</label>
-                            <input type="text" id="nomeEmpresa" required placeholder="Digite o Nome da Empresa *"><br>
+                            <label for="tamanho">Tamanho</label>
+                            <input type="text" id="tamanho" required placeholder="Digite o tamanho *"><br>
                         </div>
 
                         <div class="formContent">
-                            <label for="cnpj">CNPJ</label>
-                            <input type="text" id="cnpj" required placeholder="Digite o CNPJ *"><br>
+                            <label for="material">Material</label>
+                            <input type="text" id="material" required placeholder="Digite o material *"><br>
                         </div>
 
                         <div class="formContent">
-                            <label for="endereco">Endereço</label>
+                            <label for="endereco">Local de retirada</label>
                             <input type="text" id="endereco" required placeholder="Digite o Endereço *"><br>
                         </div>
                         
@@ -66,8 +66,8 @@
                             <textarea id="descricaoProduto" required placeholder="Digite a Descrição do Produto *"></textarea><br>
                         </div>
                         <div class="formContent">
-                            <label for="foto">Upload de Foto</label>
-                            <input type="file" id="foto" accept="image/*"><br>
+                            <label for="foto">Url de Foto</label>
+                            <input type="text" id="foto" required placeholder="Digite a url da imagem *"><br>
                         </div>
                         <div class="botaoSalvar">
                             <button type="button" onclick="salvarProduto()">Salvar</button>
@@ -75,6 +75,7 @@
                     </form>
                 </div>
             </div>
+            <div id="produtos-container"></div>
         </div>
     </main>
     <footer>
