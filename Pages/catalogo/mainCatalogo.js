@@ -30,3 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
 function redirectToPage(url) {
     window.location.href = url;
 }
+
+function Sair(){
+    localStorage.removeItem('usuarioId');
+    localStorage.removeItem('nomeEmpresa');
+}
