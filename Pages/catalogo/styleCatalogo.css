@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0);
+}
+nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main{
+
+width: 100%;
+margin: 0px;
+padding: 0px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+
+nav .menu {
+    /*Cor Azul padrão para barra nav : #0B5294*/
+    background-color: #0B5294;
+    display: flex;
+    align-items: self-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+}
+
+nav #logo {
+    height: 100px;
+    width: auto;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: 30px;
+
+}
+
+nav .menu .item {
+    display: flex;
+    align-items: baseline;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    padding: 5px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
+
+ nav .menu a:hover{
+    color: white;
+} 
+
+/*Conteudo desejado*/
+header .headerCatalogo{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+.conteudo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.anuncio {
+
+    width: 600px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #0B5294;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.anuncio img {
+    max-width: 50%;
+    height: auto;
+    border-radius:10px;
+    
+}
+
+.description {
+    margin: 5px 5px 5px 20px;
+    color: white;
+
+}
+
+.description h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
+.description p {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 1.3em;
+}
+.description ul{
+    list-style: none;
+    margin: 10px;
+    
+}
+.description ul li{
+    margin: 5px;
+    font-size: 1.2em;
+}
+.description .botaoProduto{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-left: 65px;
+    padding: 5px;
+    border: solid 2px rgba(0, 0, 0, 0.288);
+    background-color: #09447a;
+    border-radius: 40px;
+    color: white;
+    font-size: 1.3em;
+    
+}
+.description .botaoProduto:hover{
+    border: solid 2px rgba(0, 0, 0, 0.685);
+
+}
+
+footer{
+    background-color: #09447a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: self-start;
+    padding: 20px;
+    font-size: 11px;
+    width: 100%;
+
+}

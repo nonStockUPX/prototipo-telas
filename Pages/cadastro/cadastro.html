@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/Pages/cadastro/styleCadastro.css">
+</head>
+<body>
+    <nav>
+        <div class="menu">
+            <img src="/images/Logo/Logo01 - nonstock.png" alt="logo site" id="logo">
+            <a href="/Pages/login/login.html" class="item">Login</a>
+            <a href="/Pages/cadastro/cadastro.html" class="item">Cadastrar </a>
+            <a href="/Pages/home/home.html" class="item">Pagina Inicial</a>
+            <a href="/Pages/contato/contato.html" class="item">Contato</a>
+            <a href="/Pages/sobre/sobre.html" class="item">Sobre</a>
+
+        </div>
+    </nav>
+<header>
+    <div class="headerCadastro">
+        <h1>Faça seu cadastro</h1>
+    </div>
+</header>
+
+<main>
+    <div class="mainCadastro">  
+        <form>
+            <div class="field">
+                <label for="name"><strong>Nome</strong></label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite nome completo *">
+            </div>
+           
+            <div class="field">
+                <label for="lastName"><strong>Sobrenome</strong></label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Digite o sobrenome *">
+            </div>
+
+            
+            <div class="field">
+                <label for="email"><strong>Email</strong></label>
+                <input type="email" id="email" name="email" required placeholder="Digite seu email *">
+            </div>
+
+            
+            <div class="field">
+                <label for="cnpj"><strong>CNPJ</strong></label>
+                <input type="text" id="cnpj" name="cnpj" required placeholder="Digite o CNPJ *">
+            </div>
+
+            
+            <div class="field">
+                <label for="cep"><strong>CEP</strong></label>
+                <input type="text" id="cep" name="cep" required placeholder="Digite o CEP *">
+            </div>
+
+            
+            <div class="field">
+                <label for="endereco"><strong>Endereço</strong></label>
+                <input type="text" id="endereco" name="endereco" required placeholder="Digite o endereço *">
+            </div>
+
+            
+            <div class="field">
+                <label for="telefone"><strong>Telefone</strong></label>
+                <input type="text" id="telefone" name="telefone" required placeholder="Digite seu telefone *">    
+            </div>
+
+            <div class="field">
+                <label for="selecione"><strong> Cadastrar como: </strong></label>
+                <select id="selecione" name="tipo" required>
+                    <option value="">Selecione...</option>
+                    <option value="Empresa">Empresa</option>
+                    <option value="Instituição">Instituição</option>
+                </select>
+            </div>
+    
+            <div>
+                <button class="botao" type="submit" name="botao" >Cadastrar
+                    <!--<a href="index.html" target="_blank">Cadastrar</a>-->
+                </button>
+            </div>
+
+        </form>
+    </div>   
+</main>
+<footer>
+    <p>NonStock 2024 @ Todos Direitos reservados.</p>
+</footer>
+<script src="../js/cadastro.js"></script>
+</body>
+</html>

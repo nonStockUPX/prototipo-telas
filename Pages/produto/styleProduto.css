@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main{
+
+width: 100%;
+margin: 0px;
+padding: 0px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+
+nav .menu {
+    /*Cor Azul padrão para barra nav : #0B5294*/
+    background-color: #0B5294;
+    display: flex;
+    align-items: self-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+}
+
+nav #logo {
+    height: 100px;
+    width: auto;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: 30px;
+
+}
+
+nav .menu .item {
+    display: flex;
+    align-items: baseline;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    padding: 5px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
+
+nav .menu a:hover{
+    color: white;
+} 
+
+/*Conteudo inicio*/
+
+header .headerProduto{
+    margin: 10px 50px 10px 50px;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.404) ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+header .headerProduto a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: black;
+    font-weight:200;
+}
+header .headerProduto a:hover{
+    text-decoration: underline;
+}
+header .headerProduto a:visited{
+    color: black;
+}
+
+main .conteudo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 5px 50px 20px 50px;
+    background-color: rgba(0, 0, 0, 0.062);  
+    
+}
+main .conteudo img{
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    border-radius: 5px;
+}
+main .conteudo .description{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px 150px 10px 20px;
+    font-size: 1.5em;    
+    height: 400px;
+}
+
+main .conteudo .description p{
+    margin-bottom: 10px;
+}
+main .conteudo .description ul li{
+    list-style: none;
+
+    padding-bottom: 10px;
+}
+main .conteudo .description .botaoProduto{
+    display: flex;
+    justify-content:center;
+    border: solid 2px rgba(0, 0, 0, 0.185);
+    border-radius: 10px;
+    margin: 20px 150px 10px 150px;
+    padding: 10px;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #09437a28; 
+}
+main .conteudo .description .botaoProduto:hover{
+    border: solid 2px rgba(0, 0, 0, 0.74);
+    background-color: #09437a9a; 
+}
+
+/*Conteudo fim*/
+
+footer{
+    background-color: #09447a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: self-start;
+    padding: 20px;
+    font-size: 11px;
+    width: 100%;
+
+}
+

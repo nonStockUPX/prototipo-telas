@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main{
+
+width: 100%;
+margin: 0px;
+padding: 0px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+
+nav .menu {
+    /*Cor Azul padrão para barra nav : #0B5294*/
+    background-color: #0B5294;
+    display: flex;
+    align-items: self-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+}
+
+nav #logo {
+    height: 100px;
+    width: auto;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: 30px;
+
+}
+
+nav .menu .item {
+    display: flex;
+    align-items: baseline;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    padding: 5px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
+
+ nav .menu a:hover{
+    color: white;
+} 
+
+
+
+header .banner{
+
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-size: 20px;
+}
+header .banner p{
+    font-size: 15px;
+
+}
+header .banner #cadastroHeader{
+    border-radius: 20px;
+    background-color: #0B5294;
+    color: white;
+    padding: 20px 30px 20px 30px;
+    margin-top: 50px;
+    
+}
+  header .banner #cadastroHeader:hover{
+    color: black;
+    background-color: #09447a;
+}
+
+main .conteudo{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main .topicos{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 20px;
+
+}
+
+main .topicos .titulos{
+    display: flex;
+    justify-content:space-between;
+    align-content: center;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    width: fit-content;
+    font-size: 20px;
+    width: 100%;
+    text-align: justify;
+    
+
+
+}
+
+main .topicos .paragrafos{
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: space-between;
+    flex-wrap: nowrap;
+    text-align: justify;
+
+
+}
+
+main .topicos .paragrafosInterno{
+
+    margin: 30px 40px 30px 40px;
+    padding: 30px;
+    font-size: 15px;
+    text-align: justify;
+    border-left: solid 1px gray;
+
+}
+main #catalogo {
+    border-top: solid 1px gray;
+    margin: 20px 100px 10px 100px;
+    padding: 10px;
+
+
+
+}
+main #catalogo a{
+    display: flex;
+    justify-content: center;
+    background-color: #0B5294;
+    margin: 20px 400px 20px 400px;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+
+}
+main #catalogo a:hover{
+    color: black;
+    background-color: #09447a;
+}
+
+footer{
+    background-color: #09447a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: self-start;
+    padding: 20px;
+    font-size: 11px;
+    width: 100%;
+
+}
