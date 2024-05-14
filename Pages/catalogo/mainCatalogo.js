@@ -6,16 +6,16 @@ document.addEventListener("DOMContentLoaded", function() {
             data.forEach((produto, index) => {
                 const produtoHTML = `
                     <div class="anuncio" onclick="redirectToPage('produto.html')">
-                        <img src="${produto.imagem}" alt="Anúncio ${index + 1}">
+                        <img src="${produto.url_img}" alt="Anúncio ${index + 1}">
                         <div class="description">
                             <h2>${produto.nome}</h2>
-                            <p>${produto.descricaoCurta}</p>
+                            <p>${produto.descricao}</p>
                             <ul>
-                                <li><strong>Quantidade:</strong> ${produto.quantidade} un.</li>
+                                <li><strong>Quantidade:</strong> ${produto.qtd_produto} un.</li>
                                 <li><strong>tamanho:</strong> ${produto.tamanho}</li>
                                 <li><strong>material:</strong> ${produto.material} </li>
-                                <li><strong>Empresa:</strong> ${produto.empresa}</li>
-                                <li><strong>Local de retirada:</strong> ${produto.localRetirada} </li>
+                                <li><strong>Empresa:</strong> ${produto.nome_empresa}</li>
+                                <li><strong>Local de retirada:</strong> ${produto.endereco} </li>
                             </ul>
                             <a href="${produto.linkProduto}" target="_blank" rel="noopener noreferrer" class="botaoProduto">Ver produto</a>
                         </div>
