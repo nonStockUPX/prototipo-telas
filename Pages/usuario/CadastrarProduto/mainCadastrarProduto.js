@@ -1,3 +1,4 @@
+let nomeEmpresa = localStorage.nomeEmpresa;
 function abrirModal() {
     document.getElementById("formCadastro").style.display = "block";
 }
@@ -11,13 +12,14 @@ function salvarProduto() {
     var produto = {
         nome: document.getElementById("nomeProduto").value,
         quantidade: document.getElementById("quantidade").value,
-        empresa: document.getElementById("nomeEmpresa").value,
-        cnpj: document.getElementById("cnpj").value,
+        material: document.getElementById("material").value,
+        tamanho: document.getElementById("tamanho").value,
         endereco: document.getElementById("endereco").value,
         numero: document.getElementById("numero").value,
         descricao: document.getElementById("descricaoProduto").value,
-        foto: document.getElementById("foto").files[0],
-        id_empresa: localStorage.getItem('usuarioId')
+        url_img: document.getElementById("foto").value,
+        id_empresa: localStorage.getItem('usuarioId'),
+        nome_empresa: nomeEmpresa
     };
 
     // adicionarProduto(produto);
@@ -43,15 +45,21 @@ function adicionarProduto(produto) {
 
     var infoProduto = `
         <div class="descricao-produto">
+        <div class="colum">
             <p><strong>Nome do Produto:</strong> ${produto.nome}</p>
-            <p><strong>Quantidade:</strong> ${produto.quantidade}</p>
-            <p><strong>Nome da Empresa:</strong> ${produto.empresa}</p>
-            <p><strong>CNPJ:</strong> ${produto.cnpj}</p>
+            <p><strong>Quantidade:</strong> ${produto.qtd_produto}</p>
+            <p><strong>Tamanho:</strong> ${produto.tamanho}</p>
+            <p><strong>Material:</strong> ${produto.material}</p>
             <p><strong>Endereço:</strong> ${produto.endereco}</p>
             <p><strong>Número:</strong> ${produto.numero}</p>
             <p><strong>Descrição do Produto:</strong> ${produto.descricao}</p>
         </div>
+        <div>
+            <img src="${produto.url_img}"/>
+         </div>
+        </div>
     `;
+    console.log(infoProduto)
 
     divProduto.innerHTML = infoProduto;
 
@@ -60,11 +68,14 @@ function adicionarProduto(produto) {
 
     function buscarDetalhesDoUsuario() {
         const usuarioId = localStorage.getItem('usuarioId');
+        console.log(usuarioId)
         if (usuarioId) {
             const url = `https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos?id_empresa=${usuarioId}`;
+            console.log(url)
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     document.querySelectorAll('div.produto').forEach(function(div) {
                         div.remove();
                     });
