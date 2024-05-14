@@ -1,97 +1,99 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector('.form-error').value = '';
+let nomeEmpresa = localStorage.nomeEmpresa;
+function abrirModal() {
+    document.getElementById("formCadastro").style.display = "block";
+}
 
-    // Função para validar o formulário
-    function validarFormulario() {
-        var nome = document.getElementById('nome').value;
-        var lastName = document.getElementById('lastName').value;
-        var email = document.getElementById('email').value;
-        var cnpj = document.getElementById('cnpj').value;
-        var cep = document.getElementById('cep').value;
-        var endereco = document.getElementById('endereco').value;
-        var telefone = document.getElementById('telefone').value;
-        var tipo = document.getElementById('selecione').value;
-        var senha = document.getElementById('senha').value;
+function fecharModal() {
+    document.getElementById("formCadastro").style.display = "none";
+    document.getElementById("produtoForm").reset();
+}
 
-        // Verifica se todos os campos obrigatórios estão preenchidos
-        if (!nome || !lastName || !email || !cnpj || !cep || !endereco || !telefone || !tipo || !senha) {
-            document.getElementById('nome-error').textContent = 'Por favor, preencha todos os campos.';
-            isValid = false;
-            return false;
+function salvarProduto() {
+    var produto = {
+        nome: document.getElementById("nomeProduto").value,
+        quantidade: document.getElementById("quantidade").value,
+        material: document.getElementById("material").value,
+        tamanho: document.getElementById("tamanho").value,
+        endereco: document.getElementById("endereco").value,
+        numero: document.getElementById("numero").value,
+        descricao: document.getElementById("descricaoProduto").value,
+        url_img: document.getElementById("foto").value,
+        id_empresa: localStorage.getItem('usuarioId'),
+        nome_empresa: nomeEmpresa
+    };
+
+    // adicionarProduto(produto);
+    console.log(produto)
+
+    fetch(`https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(produto)
+        })
+        .then(() => buscarDetalhesDoUsuario())
+        .catch(error => console.error('Erro ao enviar formulário:', error)); // Tratamento de erro
+        console.log('Formulário validado e pronto para ser enviado.');
+
+        fecharModal();
+}
+
+function adicionarProduto(produto) {
+    var divProduto = document.createElement("div");
+    divProduto.classList.add("produto");
+
+    var infoProduto = `
+        <div class="descricao-produto">
+        <div class="colum">
+            <p><strong>Nome do Produto:</strong> ${produto.nome}</p>
+            <p><strong>Quantidade:</strong> ${produto.qtd_produto}</p>
+            <p><strong>Tamanho:</strong> ${produto.tamanho}</p>
+            <p><strong>Material:</strong> ${produto.material}</p>
+            <p><strong>Endereço:</strong> ${produto.endereco}</p>
+            <p><strong>Número:</strong> ${produto.numero}</p>
+            <p><strong>Descrição do Produto:</strong> ${produto.descricao}</p>
+        </div>
+        <div>
+            <img src="${produto.url_img}"/>
+         </div>
+        </div>
+    `;
+    console.log(infoProduto)
+
+    divProduto.innerHTML = infoProduto;
+
+    document.getElementById("produtos-container").appendChild(divProduto);
+}
+
+    function buscarDetalhesDoUsuario() {
+        const usuarioId = localStorage.getItem('usuarioId');
+        console.log(usuarioId)
+        if (usuarioId) {
+            const url = `https://664139c7a7500fcf1a9fdfda.mockapi.io/produto/produtos?id_empresa=${usuarioId}`;
+            console.log(url)
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    document.querySelectorAll('div.produto').forEach(function(div) {
+                        div.remove();
+                    });
+                    data.forEach(p => {
+                        adicionarProduto(p);
+                    });
+                    console.log('Detalhes do usuário:', data);
+                    // Aqui você pode atualizar a UI da página com os detalhes do usuário
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar detalhes do usuário:', error);
+                });
+        } else {
+            console.log('Nenhum usuário logado.');
         }
-
-        cnpj = cnpj.replace(/[^\d]+/g, ''); 
-        if (cnpj == '' || cnpj.length != 14){
-            alert('Por favor, insira um CNPJ válido.');
-            return false;
-        }
-        cep = cep.replace(/\D/g, '');
-        
-        if (cep.length != 8) {
-                return false;
-        }
-
-        // Correção na criação do objeto usuario
-        var usuario = {
-            "name": nome,
-            "email": email,
-            "cnpj": cnpj,
-            "cep": cep,
-            "endereco": endereco, // Corrigido de "enderco" para "endereco"
-            "telefone": telefone,
-            "tipo": tipo, // Supondo que você queria usar "tipo" ao invés de "type"
-            "senha": senha
-        };
-        console.log("final")
-        return usuario;
     }
 
-    // Adiciona o listener ao botão de cadastro
-    document.querySelector('.botao').addEventListener('click', function(event) {
-        event.preventDefault(); // Impede o envio do formulário
-        let resp = validarFormulario(); // Declarando resp explicitamente
-        console.log(JSON.stringify(resp, null, 2));
-        if (resp) {
-            fetch(`https://6630275bc92f351c03d92479.mockapi.io/linguagens/usuario`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(resp)
-            })
-            .then(() => window.location.href = '../login/login.html')
-            .catch(error => console.error('Erro ao enviar formulário:', error)); // Tratamento de erro
-            console.log('Formulário validado e pronto para ser enviado.');
-        }
-    });
-});
-
-document.getElementById('cnpj').addEventListener('input', function(e) {
-    var input = e.target.value.replace(/\D/g, ''); // Remove tudo o que não é dígito
-    var formatted = input;
-
-    // Aplica a formatação XX.XXX.XXX/XXXX-XX
-    if (input.length > 12) {
-        formatted = input.substring(0, 2) + '.' + input.substring(2, 5) + '.' + input.substring(5, 8) + '/' + input.substring(8, 12) + '-' + input.substring(12, 14);
-    } else if (input.length > 8) {
-        formatted = input.substring(0, 2) + '.' + input.substring(2, 5) + '.' + input.substring(5, 8) + '/' + input.substring(8);
-    } else if (input.length > 5) {
-        formatted = input.substring(0, 2) + '.' + input.substring(2, 5) + '.' + input.substring(5);
-    } else if (input.length > 2) {
-        formatted = input.substring(0, 2) + '.' + input.substring(2);
-    }
-
-    e.target.value = formatted;
-});
-
-document.getElementById('cep').addEventListener('input', function(e) {
-    var input = e.target.value.replace(/\D/g, ''); // Remove tudo o que não é dígito
-    var formatted = input;
-
-    // Aplica a formatação XXXXX-XXX
-    if (input.length > 5) {
-        formatted = input.substring(0, 5) + '-' + input.substring(5, 8);
-    }
-
-    e.target.value = formatted;
+// Chama buscarDetalhesDoUsuario quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', function() {
+buscarDetalhesDoUsuario();
 });
