@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const conteudoDiv = document.querySelector('.conteudo');
             data.forEach((produto, index) => {
                 const produtoHTML = `
-                    <div class="anuncio" onclick="redirectToPage('produto.html')">
+                    <div class="anuncio" onclick="redirectToPage('../produto/produto01.html?id=${produto.id}')">
                         <img src="${produto.url_img}" alt="Anúncio ${index + 1}">
                         <div class="description">
                             <h2>${produto.nome}</h2>
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <li><strong>Empresa:</strong> ${produto.nome_empresa}</li>
                                 <li><strong>Local de retirada:</strong> ${produto.endereco} </li>
                             </ul>
-                            <a href="${produto.linkProduto}" target="_blank" rel="noopener noreferrer" class="botaoProduto">Ver produto</a>
+                            <a href="../produto/produto01.html?id=${produto.id}" target="_blank" rel="noopener noreferrer" class="botaoProduto">Ver produto</a>
                         </div>
                     </div>
                 `;
